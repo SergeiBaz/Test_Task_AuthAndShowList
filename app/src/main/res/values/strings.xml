@@ -12,4 +12,5 @@
     <string name="amout">$99.9</string>
     <string name="data">12/12/23</string>
     <string name="id">id</string>
+    <string name="exit">Выход</string>
 </resources>
