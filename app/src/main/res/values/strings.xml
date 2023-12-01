@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Test Task 1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sing_in">Войти</string>
+    <string name="password">Пароль</string>
+    <string name="login">Логин</string>
+    <string name="authorization">Авторизация</string>
+    <string name="list_payments">Список платежей</string>
+    <string name="payment">Покупка</string>
+    <string name="card">MASTERCARD ****3241</string>
+    <string name="amout">$99.9</string>
+    <string name="data">12/12/23</string>
+    <string name="id">id</string>
 </resources>
