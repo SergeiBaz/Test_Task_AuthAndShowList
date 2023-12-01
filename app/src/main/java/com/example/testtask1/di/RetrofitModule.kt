@@ -15,7 +15,7 @@ class RetrofitModule {
     @Singleton
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://easypay.world/api-test")
+            .baseUrl("https://easypay.world/api-test/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

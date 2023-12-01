@@ -50,6 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_payments">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/paymentRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="5dp" />
