@@ -31,10 +31,9 @@ class ListPaymentsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = PaymentAdapter()
-        viewModelAuth.currentTokenState.observe(viewLifecycleOwner) {
-            Log.d("log", "$it")
-            viewModelPayment.getListPayments(it!!)
-        }
+        val token = "7b7c0a690bee2e8d90512ed1b57e19f0"
+        viewModelPayment.getListPayments(token)
+
         viewModelPayment.currentPaymentState.observe(viewLifecycleOwner) {
             adapter.setPayments(it)
             Log.d("log", "${it.toString()}")

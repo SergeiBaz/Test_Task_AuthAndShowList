@@ -26,8 +26,8 @@ class PaymentAdapter : RecyclerView.Adapter<PaymentAdapter.PaymentViewHolder>() 
         val payment = payments[position]
         with(holder.binding) {
             paymentText.text = payment.title
-            amoutText.text = payment._amount
-            cardText.text = " MASTERCARD ${payment._created}"
+            amoutText.text = payment.amount
+            cardText.text = " MASTERCARD ${payment.created}"
         }
     }
 
