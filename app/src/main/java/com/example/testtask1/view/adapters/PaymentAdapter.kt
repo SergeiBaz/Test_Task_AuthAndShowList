@@ -24,10 +24,11 @@ class PaymentAdapter : RecyclerView.Adapter<PaymentAdapter.PaymentViewHolder>() 
 
     override fun onBindViewHolder(holder: PaymentViewHolder, position: Int) {
         val payment = payments[position]
+        val created = "MASTERCARD ${payment.created}"
         with(holder.binding) {
             paymentText.text = payment.title
             amoutText.text = payment.amount
-            cardText.text = " MASTERCARD ${payment.created}"
+            cardText.text = created
         }
     }
 

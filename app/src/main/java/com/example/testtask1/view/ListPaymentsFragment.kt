@@ -33,7 +33,6 @@ class ListPaymentsFragment : Fragment() {
         viewModelPayment.getListPayments()
         viewModelPayment.currentPaymentState.observe(viewLifecycleOwner) {
             adapter.setPayments(it)
-            Log.d("logP", "$it")
         }
         val manager = LinearLayoutManager(activity)
         binding.paymentRecyclerView.layoutManager = manager

@@ -1,7 +1,6 @@
 package com.example.testtask1.di
 
-import android.util.Log
-import com.example.testtask1.model.ResponseToken
+import com.example.testtask1.model.TokenStorage
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
@@ -21,14 +20,11 @@ class TokenInterceptor : Interceptor {
             .apply {
                 addHeader(header1NameKey, ConstantsNetwork.HEADER1)
                 addHeader(header2NameV, ConstantsNetwork.HEADER2)
-                val token = ResponseToken.token
+                val token = TokenStorage.token
                 if (token.isNotBlank()) {
                     header(authHeaderNameToken, token)
-                    Log.d("logI", "${header(authHeaderNameToken, token)}")
                 }
             }
             .build()
     }
-
-    private fun String.withBearer() = "token $this"
 }

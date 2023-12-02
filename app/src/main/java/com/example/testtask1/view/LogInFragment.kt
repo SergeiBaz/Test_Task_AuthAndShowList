@@ -2,16 +2,16 @@ package com.example.testtask1.view
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.testtask1.R
 import com.example.testtask1.databinding.FragmentLogInBinding
-import com.example.testtask1.model.ResponseToken
+import com.example.testtask1.model.TokenStorage
 import com.example.testtask1.model.User
 import com.example.testtask1.viewModel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,8 +23,10 @@ import java.lang.Exception
 
 @AndroidEntryPoint
 class LogInFragment : Fragment() {
+
     private lateinit var binding: FragmentLogInBinding
     private val viewModel by viewModels<AuthViewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,29 +39,49 @@ class LogInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             singInButton.setOnClickListener {
-                Log.d("Mylog", "Нажата кнопка")
-                CoroutineScope(Dispatchers.Main).launch {
-                    viewModel.logInUser(
-                        User(
-                            loginEt.text.toString(),
-                            passEt.text.toString()
-                        )
+                if (isValidEmailAndPassword(
+                        emailEditText.text.toString(),
+                        passwordEditText.text.toString()
                     )
-                    progressBar.max = 1000
-                    ObjectAnimator.ofInt(
-                        progressBar,
-                        "progress",
-                        1000
-                    ).setDuration(3000).start()
-                    progressBar.visibility = View.VISIBLE
-                    delay(3000)
-                    viewModel.currentTokenState.observe(viewLifecycleOwner) {
-                        ResponseToken.token = it ?: throw Exception("Токен не пришёл!")
-                        Log.d("logT", ResponseToken.token)
+                ) {
+                    CoroutineScope(Dispatchers.Main).launch {
+                        viewModel.logInUser(
+                            User(
+                                emailEditText.text.toString(),
+                                passwordEditText.text.toString()
+                            )
+                        )
+                        progressBar.max = 3000
+                        ObjectAnimator.ofInt(
+                            progressBar,
+                            "progress",
+                            500
+                        ).setDuration(5000).start()
+                        progressBar.visibility = View.VISIBLE
+                        delay(5000)
                     }
-                    findNavController().navigate(R.id.listPaymentsFragment)
+                    viewModel.currentTokenState.observe(viewLifecycleOwner) {
+                        TokenStorage.token = it ?: throw Exception("Токен не пришёл!")
+                        findNavController().navigate(R.id.listPaymentsFragment)
+                    }
+                } else {
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Логин/Пароль неверны")
+                        .setMessage("Попробуйте ещё раз")
+                        .setPositiveButton("Okay") { _, _ ->
+                            binding.emailEditText.text = null
+                            binding.passwordEditText.text = null
+                        }
+                        .show()
                 }
             }
         }
+    }
+
+    private fun isValidEmailAndPassword(email: String?, password: String?): Boolean {
+        if (email != "demo" || password != "12345") {
+            return false
+        }
+        return true
     }
 }

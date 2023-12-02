@@ -24,7 +24,6 @@ class AuthViewModel @Inject constructor(
     fun logInUser(user: User) {
         viewModelScope.launch {
             val token = repository.logInUser(user)
-            delay(3000)
             Log.d("log", "${token}")
             withContext(Dispatchers.Main){
                 _currentTokenState.value = token

@@ -20,7 +20,6 @@ class AuthRepository @Inject constructor(
     }
 
     suspend fun logInUser(user: User): String? {
-       return authApi.logInUser(createRequestBody(user))?._response?._token
+        return authApi.logInUser(createRequestBody(user))?._response?._token
     }
-
 }

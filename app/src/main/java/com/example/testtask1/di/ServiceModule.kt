@@ -8,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ServiceComponent
 import retrofit2.Retrofit
 import javax.inject.Singleton
+
 @InstallIn(ServiceComponent::class)
 @Module
 class ServiceModule {

@@ -1,5 +1,7 @@
 package com.example.testtask1.model
 
-object ResponseToken {
-    var token: String = ""
-}
+import com.google.gson.annotations.SerializedName
+
+data class ResponseToken(
+    @SerializedName("token") val _token: String?,
+)
