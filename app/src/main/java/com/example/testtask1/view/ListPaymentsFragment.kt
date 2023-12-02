@@ -19,7 +19,6 @@ class ListPaymentsFragment : Fragment() {
     private lateinit var binding: FragmentListPaymentsBinding
     private lateinit var adapter: PaymentAdapter
     private val viewModelPayment by viewModels<PaymentViewModel>()
-    private val viewModelAuth by viewModels<AuthViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,12 +30,10 @@ class ListPaymentsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = PaymentAdapter()
-        val token = "7b7c0a690bee2e8d90512ed1b57e19f0"
-        viewModelPayment.getListPayments(token)
-
+        viewModelPayment.getListPayments()
         viewModelPayment.currentPaymentState.observe(viewLifecycleOwner) {
             adapter.setPayments(it)
-            Log.d("log", "${it.toString()}")
+            Log.d("logP", "$it")
         }
         val manager = LinearLayoutManager(activity)
         binding.paymentRecyclerView.layoutManager = manager

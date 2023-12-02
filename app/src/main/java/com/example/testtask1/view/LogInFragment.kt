@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.testtask1.R
 import com.example.testtask1.databinding.FragmentLogInBinding
+import com.example.testtask1.model.ResponseToken
 import com.example.testtask1.model.User
 import com.example.testtask1.viewModel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,6 +19,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.lang.Exception
+
 @AndroidEntryPoint
 class LogInFragment : Fragment() {
     private lateinit var binding: FragmentLogInBinding
@@ -33,7 +36,7 @@ class LogInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            singInButton.setOnClickListener{
+            singInButton.setOnClickListener {
                 Log.d("Mylog", "Нажата кнопка")
                 CoroutineScope(Dispatchers.Main).launch {
                     viewModel.logInUser(
@@ -50,7 +53,10 @@ class LogInFragment : Fragment() {
                     ).setDuration(3000).start()
                     progressBar.visibility = View.VISIBLE
                     delay(3000)
-
+                    viewModel.currentTokenState.observe(viewLifecycleOwner) {
+                        ResponseToken.token = it ?: throw Exception("Токен не пришёл!")
+                        Log.d("logT", ResponseToken.token)
+                    }
                     findNavController().navigate(R.id.listPaymentsFragment)
                 }
             }

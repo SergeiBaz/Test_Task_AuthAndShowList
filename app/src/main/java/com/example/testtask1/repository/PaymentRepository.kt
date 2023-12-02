@@ -10,7 +10,7 @@ class PaymentRepository @Inject constructor(
 ) {
     private val paymentApi = retrofit.create(PaymentApi::class.java)
 
-    suspend fun getListPayments(token: String): List<Payment> {
-        return paymentApi.getListPayments(token)._response
+    suspend fun getListPayments(): List<Payment> {
+        return paymentApi.getListPayments()._response
     }
 }

@@ -20,9 +20,9 @@ class PaymentViewModel @Inject constructor(
     private val _currentPaymentState = MutableLiveData<List<Payment>>()
     val currentPaymentState: LiveData<List<Payment>> = _currentPaymentState
 
-    fun getListPayments(token: String) {
+    fun getListPayments() {
         viewModelScope.launch {
-            val listPayments = repository.getListPayments(token)
+            val listPayments = repository.getListPayments()
             Log.d("log", "$listPayments")
             withContext(Dispatchers.Main) {
                 _currentPaymentState.value = listPayments
