@@ -14,4 +14,5 @@
     <string name="id">id</string>
     <string name="exit">Выход</string>
     <string name="required_for_entry">Обязательно для ввода!</string>
+    <string name="background">Background</string>
 </resources>

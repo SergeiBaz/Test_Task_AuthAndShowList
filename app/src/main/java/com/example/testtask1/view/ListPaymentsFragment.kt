@@ -1,15 +1,11 @@
 package com.example.testtask1.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +13,6 @@ import com.example.testtask1.R
 import com.example.testtask1.databinding.FragmentListPaymentsBinding
 import com.example.testtask1.model.TokenStorage
 import com.example.testtask1.view.adapters.PaymentAdapter
-import com.example.testtask1.viewModel.AuthViewModel
 import com.example.testtask1.viewModel.PaymentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,7 +39,7 @@ class ListPaymentsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.backButton.setOnClickListener {
+        binding.buttonBack.setOnClickListener {
             backPressed()
         }
         adapter = PaymentAdapter()

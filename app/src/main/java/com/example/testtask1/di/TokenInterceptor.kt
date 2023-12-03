@@ -13,17 +13,12 @@ class TokenInterceptor : Interceptor {
     }
 
     private fun Request.addTokenHeader(): Request {
-        val header1NameKey = "app-key"
-        val header2NameV = "v"
-        val authHeaderNameToken = "token"
         return newBuilder()
             .apply {
-                addHeader(header1NameKey, ConstantsNetwork.HEADER1)
-                addHeader(header2NameV, ConstantsNetwork.HEADER2)
+                addHeader("app-key", ConstantsNetwork.HEADER_APP_KEY)
+                addHeader("v", ConstantsNetwork.HEADER_V)
                 val token = TokenStorage.token
-                if (token.isNotBlank()) {
-                    header(authHeaderNameToken, token)
-                }
+                header("token", token ?: "")
             }
             .build()
     }

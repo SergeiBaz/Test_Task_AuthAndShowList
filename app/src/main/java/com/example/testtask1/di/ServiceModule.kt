@@ -23,5 +23,4 @@ class ServiceModule {
     fun providePaymentRepository(retrofit: Retrofit): PaymentRepository {
         return PaymentRepository(retrofit)
     }
-
 }

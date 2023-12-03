@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -26,8 +27,12 @@ class RetrofitModule {
     }
 
     private fun init() {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
         okhttpClient = OkHttpClient.Builder()
+            .addNetworkInterceptor(interceptor)
             .addNetworkInterceptor(TokenInterceptor())
             .build()
+
     }
 }

@@ -1,6 +1,7 @@
 package com.example.testtask1.repository
 
 import com.example.testtask1.AuthApi
+import com.example.testtask1.model.LoginResponse
 import com.example.testtask1.model.User
 import com.google.gson.Gson
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -19,7 +20,7 @@ class AuthRepository @Inject constructor(
         return gson.toJson(model).toRequestBody("application/json".toMediaTypeOrNull())
     }
 
-    suspend fun logInUser(user: User): String? {
-        return authApi.logInUser(createRequestBody(user))?._response?._token
+    suspend fun logInUser(user: User): LoginResponse? {
+        return authApi.logInUser(createRequestBody(user))
     }
 }

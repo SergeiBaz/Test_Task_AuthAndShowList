@@ -1,7 +1,6 @@
 package com.example.testtask1.viewModel
 
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,11 +22,9 @@ class PaymentViewModel @Inject constructor(
     fun getListPayments() {
         viewModelScope.launch {
             val listPayments = repository.getListPayments()
-            Log.d("log", "$listPayments")
             withContext(Dispatchers.Main) {
                 _currentPaymentState.value = listPayments
             }
         }
-
     }
 }
