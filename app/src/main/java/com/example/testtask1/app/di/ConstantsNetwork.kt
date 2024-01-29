@@ -1,4 +1,4 @@
-package com.example.testtask1.di
+package com.example.testtask1.app.di
 
 object ConstantsNetwork {
     const val URL = "https://easypay.world/api-test/"

@@ -1,4 +1,4 @@
-package com.example.testtask1.view
+package com.example.testtask1.app.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,9 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.testtask1.R
 import com.example.testtask1.databinding.FragmentLogInBinding
-import com.example.testtask1.model.TokenStorage
-import com.example.testtask1.model.User
-import com.example.testtask1.viewModel.AuthViewModel
+import com.example.testtask1.app.model.TokenStorage
+import com.example.testtask1.app.model.User
+import com.example.testtask1.app.viewModel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

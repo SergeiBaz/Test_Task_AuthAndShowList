@@ -1,4 +1,4 @@
-package com.example.testtask1.view
+package com.example.testtask1.app.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,9 +11,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.testtask1.R
 import com.example.testtask1.databinding.FragmentListPaymentsBinding
-import com.example.testtask1.model.TokenStorage
-import com.example.testtask1.view.adapters.PaymentAdapter
-import com.example.testtask1.viewModel.PaymentViewModel
+import com.example.testtask1.app.model.TokenStorage
+import com.example.testtask1.app.view.adapters.PaymentAdapter
+import com.example.testtask1.app.viewModel.PaymentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

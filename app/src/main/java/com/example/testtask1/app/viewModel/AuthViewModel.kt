@@ -1,11 +1,11 @@
-package com.example.testtask1.viewModel
+package com.example.testtask1.app.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.testtask1.model.User
-import com.example.testtask1.repository.AuthRepository
+import com.example.testtask1.app.model.User
+import com.example.testtask1.app.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

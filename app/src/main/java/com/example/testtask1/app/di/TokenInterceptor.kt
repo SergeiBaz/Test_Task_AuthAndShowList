@@ -1,6 +1,6 @@
-package com.example.testtask1.di
+package com.example.testtask1.app.di
 
-import com.example.testtask1.model.TokenStorage
+import com.example.testtask1.app.model.TokenStorage
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response

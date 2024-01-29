@@ -1,7 +1,7 @@
-package com.example.testtask1.di
+package com.example.testtask1.app.di
 
-import com.example.testtask1.repository.AuthRepository
-import com.example.testtask1.repository.PaymentRepository
+import com.example.testtask1.app.repository.AuthRepository
+import com.example.testtask1.app.repository.PaymentRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

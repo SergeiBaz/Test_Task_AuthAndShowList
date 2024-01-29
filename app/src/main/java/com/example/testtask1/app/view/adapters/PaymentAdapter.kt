@@ -1,10 +1,10 @@
-package com.example.testtask1.view.adapters
+package com.example.testtask1.app.view.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testtask1.databinding.ItemPaymentBinding
-import com.example.testtask1.model.Payment
+import com.example.testtask1.app.model.Payment
 
 class PaymentAdapter : RecyclerView.Adapter<PaymentAdapter.PaymentViewHolder>() {
     private var payments: List<Payment> = ArrayList()

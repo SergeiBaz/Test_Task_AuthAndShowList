@@ -1,7 +1,7 @@
-package com.example.testtask1.repository
+package com.example.testtask1.app.repository
 
-import com.example.testtask1.PaymentApi
-import com.example.testtask1.model.Payment
+import com.example.testtask1.app.PaymentApi
+import com.example.testtask1.app.model.Payment
 import retrofit2.Retrofit
 import javax.inject.Inject
 

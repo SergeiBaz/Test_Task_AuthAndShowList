@@ -1,4 +1,4 @@
-package com.example.testtask1.di
+package com.example.testtask1.app.di
 
 import dagger.Module
 import dagger.Provides

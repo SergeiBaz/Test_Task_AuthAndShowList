@@ -1,8 +1,8 @@
-package com.example.testtask1.repository
+package com.example.testtask1.app.repository
 
-import com.example.testtask1.AuthApi
-import com.example.testtask1.model.LoginResponse
-import com.example.testtask1.model.User
+import com.example.testtask1.app.AuthApi
+import com.example.testtask1.app.model.LoginResponse
+import com.example.testtask1.app.model.User
 import com.google.gson.Gson
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
